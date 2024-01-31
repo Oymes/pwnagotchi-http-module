@@ -18,6 +18,9 @@ Once the Pwnagotchi is running, you can access the captured handshakes by naviga
 
 ## Configuration
 
-The script is configured to serve files from the `/root/handshakes` directory. This is currently hard coded but will be updated to support config changes. 
+The script is configured to serve files from the `/root/handshakes` directory. 
+The script is configured to serve files using port 8000.
+
+These options hard coded but will be updated to support config changes at a later date. 
 
 
