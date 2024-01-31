@@ -6,7 +6,7 @@ This is a simple HTTP server plugin for [Pwnagotchi](https://pwnagotchi.ai/). Th
 
 ## Installation
 
-1. Install script into plugins folder. (/usr/local/share/pwnagotchi/custom-plugins)
+1. Install script into plugins folder. (`/usr/local/share/pwnagotchi/custom-plugins`)
 
 2. Edit the config.toml
 
