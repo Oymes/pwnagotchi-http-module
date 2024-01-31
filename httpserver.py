@@ -1,5 +1,4 @@
 import logging
-import os
 from http.server import SimpleHTTPRequestHandler, HTTPServer
 
 import pwnagotchi.plugins as plugins
@@ -18,7 +17,7 @@ class HttpServerPlugin(plugins.Plugin):
     __description__ = 'HTTP Server Plugin'
 
     def on_loaded(self):
-        logging.info("HttpServerPlugin loaded")
+        logging.info("[HttpServerPlugin] Loaded")
         self.start_http_server()
 
     def on_unload(self, ui):
@@ -28,25 +27,20 @@ class HttpServerPlugin(plugins.Plugin):
         try:
             server_address = ('', 8000)
             self.httpd = HTTPServer(server_address, MyHTTPRequestHandler)
-            logging.info("Starting HTTP server on port 8000")
+            logging.info("[HttpServerPlugin] Starting HTTP server on port 8000")
             self.httpd.serve_forever()
 
         except Exception as e:
-            logging.error(f"Error starting HTTP server: {e}")
+            logging.error(f"[HttpServerPlugin] Error starting HTTP server: {e}")
 
     def stop_http_server(self):
         try:
             if hasattr(self, 'httpd'):
-                logging.error("Shutting Down HTTP Server.")
+                logging.error("[HttpServerPlugin] Shutting Down HTTP Server.")
                 self.httpd.shutdown()
 
         except Exception as e:
-            logging.error(f"Error stopping HTTP server: {e}")
-
-    def on_ui_setup(self, ui):
-        ui.add_element('http_server', LabeledValue(color=BLACK, label='HTTP', value='localhost:8000',
-                                                   position=(ui.width() / 2 - 50, ui.height() - 10),
-                                                   label_font=fonts.Bold, text_font=fonts.Medium))
+            logging.error(f"[HttpServerPlugin] Error stopping HTTP server: {e}")
 
 # Instantiate the plugin
 http_server_plugin = HttpServerPlugin()
