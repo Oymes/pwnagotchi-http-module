@@ -7,8 +7,8 @@ from pwnagotchi.ui.view import BLACK
 import pwnagotchi.ui.fonts as fonts
 
 class MyHTTPRequestHandler(SimpleHTTPRequestHandler):
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, directory="/root/handshakes", **kwargs)
+    def __init__(self, *args):
+        super().__init__(*args, directory="/root/handshakes")
 
 class HttpServerPlugin(plugins.Plugin):
     __author__ = 'Hades'
